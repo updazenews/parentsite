@@ -1,66 +1,35 @@
-import { db, storage, auth } from "./firebase.js";
+import { db, auth } from "./firebase.js";
+import { collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
-import {
-  collection,
-  addDoc,
-  serverTimestamp
-} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
-import {
-  ref,
-  uploadBytes,
-  getDownloadURL
-} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
-
-import {
-  onAuthStateChanged
-} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-
-/* 🔐 Protect page: only logged-in writers */
+// Protect page
 onAuthStateChanged(auth, user => {
-  if (!user) {
-    window.location.href = "../login.html";
-  }
+  if (!user) window.location.href = "../login.html";
 });
 
-/* 📰 Publish article */
+// Publish article
 window.publish = async function () {
   const title = document.getElementById("title").value.trim();
   const summary = document.getElementById("summary").value.trim();
   const content = document.getElementById("content").value.trim();
-  const imageFile = document.getElementById("image").files[0];
+  const image = document.getElementById("image").value.trim();
 
   if (!title || !summary || !content) {
     alert("Please fill in all required fields.");
     return;
   }
 
+  // Generate slug
+  const slug = title.toLowerCase()
+                    .replace(/[^a-z0-9]+/g, "-")
+                    .replace(/(^-|-$)/g, "");
+
   try {
-    let imageUrl = "";
-
-    /* 📷 Upload image if provided */
-    if (imageFile) {
-      const imageRef = ref(
-        storage,
-        `articles/${Date.now()}-${imageFile.name}`
-      );
-
-      await uploadBytes(imageRef, imageFile);
-      imageUrl = await getDownloadURL(imageRef);
-    }
-
-    /* 🔗 Generate URL-friendly slug */
-    const slug = title
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/(^-|-$)/g, "");
-
-    /* 💾 Save article to Firestore */
     await addDoc(collection(db, "articles"), {
       title,
       summary,
       content,
-      image: imageUrl,
+      image, // <-- just the GitHub URL or path
       slug,
       author: auth.currentUser.email,
       publishedAt: serverTimestamp()
@@ -68,7 +37,7 @@ window.publish = async function () {
 
     alert("✅ Article published successfully!");
 
-    /* 🔄 Reset form */
+    // Reset form
     document.getElementById("title").value = "";
     document.getElementById("summary").value = "";
     document.getElementById("content").value = "";
@@ -76,6 +45,6 @@ window.publish = async function () {
 
   } catch (error) {
     console.error("Error publishing article:", error);
-    alert("❌ Failed to publish article. Check console.");
+    alert("❌ Failed to publish article.");
   }
 };

@@ -33,3 +33,15 @@ snapshot.forEach(doc => {
     </div>
   `;
 });
+
+document.getElementById("title").innerText = a.title;
+
+// Load image from GitHub
+if (a.image) {
+  document.getElementById("image").src = a.image;
+  document.getElementById("image").alt = a.title;
+}
+document.getElementById("content").innerHTML =
+  a.content.split("\n").map(p => `<p>${p}</p>`).join("");
+
+
