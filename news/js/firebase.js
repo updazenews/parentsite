@@ -7,7 +7,7 @@ const firebaseConfig = {
   apiKey: "AIzaSyDiRXSGIXw8lbbxx_jZk0VOyCzmt0rasLQ",
   authDomain: "updaze-news.firebaseapp.com",
   projectId: "updaze-news",
-  storageBucket: "updaze-news.firebasestorage.app",
+  storageBucket: "updaze-news.appspot.com",
   messagingSenderId: "360342332196",
   appId: "1:360342332196:web:732d9972e8d7f69a1209b1",
   measurementId: "G-PHWVGJ3Q72"
