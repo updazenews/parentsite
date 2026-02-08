@@ -66,32 +66,47 @@
   <div class="container mt-4">
     <div class="row" id="newsContainer">
       <!-- News articles will be dynamically inserted here -->
-      <div class="col-8">
-        <div id="carouselNews" class="carousel slide">
-          <div class="carousel-indicators" id="carousalButtons">
-            <button type="button" data-bs-target="#carouselNews" data-bs-slide-to="0" class="active" aria-current="true"
-              aria-label="Slide 1"></button>
-          </div>
-          <div class="carousel-inner" id="carousalInner">
-            <div class="carousel-item active">
-              <img src="./assets/news/Gray White and Red Bold Cinematic Street YouTube Thumbnail.png"
-                class="d-block w-100" alt="...">
+      <div class="col-10">
+        <div class="row">
+          <div class="col">
+            <div id="carouselNews" class="carousel slide">
+              <div class="carousel-indicators" id="carousalButtons">
+                <button type="button" data-bs-target="#carouselNews" data-bs-slide-to="0" class="active"
+                  aria-current="true" aria-label="Slide 1"></button>
+              </div>
+              <div class="carousel-inner" id="carousalInner">
+                <div class="carousel-item active">
+                  <img src="./assets/news/Gray White and Red Bold Cinematic Street YouTube Thumbnail.png"
+                    class="d-block w-100" alt="...">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselNews" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselNews" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
             </div>
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselNews" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselNews" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
+          <div class="col">
+            <div class="container text-center">
+              <div class="row row-cols-2">
+                <div class="col">Column</div>
+                <div class="col">Column</div>
+                <div class="col">Column</div>
+                <div class="col">Column</div>
+              </div>
+            </div>
+          </div>
         </div>
+
         <div class="row" id="newsContainer"></div>
       </div>
-      <div class="col-4">
+      <div class="col-2">
         <!-- Google AdSense -->
-        <div class="mb-2">
+        <div class="mb-4">
           <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5731928992880799"
             data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
           <script>
