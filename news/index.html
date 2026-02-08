@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
- <!-- Bootstrap -->
-   <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
   <!-- AdSense -->
-  <script async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5731928992880799"
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5731928992880799"
     crossorigin="anonymous"></script>
   <meta name="google-adsense-account" content="ca-pub-5731928992880799">
 
@@ -19,69 +19,89 @@
   <title>Latest News | Updaze News</title>
   <meta name="description" content="Breaking news, top stories and latest headlines from Updaze News">
 
- 
+
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-         <div class="container">
-            <a class="navbar-brand" href="./index.html">
-              <img src="./assets/img/logo.png" alt="Updaze News" width="50" height="44">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <div class="container">
+        <a class="navbar-brand" href="./index.html">
+          <img src="./assets/img/logo.png" alt="Updaze News" width="50" height="44">
+        </a>
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Trending News</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Categories
             </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Politics</a></li>
+              <li><a class="dropdown-item" href="#">Business</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Technology</a></li>
+              <li><a class="dropdown-item" href="#">Entertainment</a></li>
+              <li><a class="dropdown-item" href="#">Sports</a></li>
+              <li><a class="dropdown-item" href="#">Celebrity News</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <div class="row" id="newsContainer">
+      <!-- News articles will be dynamically inserted here -->
+      <div class="col-8">
+        <div id="carouselNews" class="carousel slide">
+          <div class="carousel-indicators" id="carousalButtons">
+            <button type="button" data-bs-target="#carouselNews" data-bs-slide-to="0" class="active" aria-current="true"
+              aria-label="Slide 1"></button>
           </div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Trending News</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Categories
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Politics</a></li>
-                <li><a class="dropdown-item" href="#">Business</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Technology</a></li>
-                <li><a class="dropdown-item" href="#">Entertainment</a></li>
-                <li><a class="dropdown-item" href="#">Sports</a></li>
-                <li><a class="dropdown-item" href="#">Celebrity News</a></li>
-              </ul>
-            </li>            
-          </ul>          
+          <div class="carousel-inner" id="carousalInner">
+            <div class="carousel-item active">
+              <img src="./assets/news/Gray White and Red Bold Cinematic Street YouTube Thumbnail.png"
+                class="d-block w-100" alt="...">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselNews" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselNews" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <div class="row" id="newsContainer"></div>
+      </div>
+      <div class="col-4">
+        <!-- Google AdSense -->
+        <div class="mb-4">
+          <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5731928992880799"
+            data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
         </div>
       </div>
-    </nav>
+    </div>
 
-<div class="container mt-4">
-<div id="carouselNews" class="carousel slide">
-  <div class="carousel-indicators" id="carousalButtons">
-    <button type="button" data-bs-target="#carouselNews" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-  </div>
-  <div class="carousel-inner" id="carousalInner">
-    <div class="carousel-item active">
-      <img src="./assets/news/Gray White and Red Bold Cinematic Street YouTube Thumbnail.png" class="d-block w-100" alt="...">
-    </div>    
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselNews" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselNews" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-  <div class="row" id="newsContainer"></div>
-</div>
-
-<script type="module" src="js/articles.js"></script>
+    <script type="module" src="js/articles.js"></script>
 </body>
+
 </html>
