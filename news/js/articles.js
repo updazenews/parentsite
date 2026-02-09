@@ -6,7 +6,9 @@ import {
   orderBy
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-const container = document.getElementById("innerCarousal");
+document.addEventListener("DOMContentLoaded", async () => {
+  // your code here
+  const container = document.getElementById("innerCarousal");
 
 const q = query(
   collection(db, "articles"),
@@ -39,4 +41,7 @@ if (a.image) {
 document.getElementById("content").innerHTML =
   a.content.split("\n").map(p => `<p>${p}</p>`).join("");
 
+
+
+});
 
