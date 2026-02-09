@@ -6,7 +6,7 @@ import {
   orderBy
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-const container = document.getElementById("newsContainer");
+const container = document.getElementById("innerCarousal");
 
 const q = query(
   collection(db, "articles"),
@@ -19,16 +19,11 @@ snapshot.forEach(doc => {
   const a = doc.data();
 
   container.innerHTML += `
-    <div class="col-md-4 mb-4">
-      <div class="card h-100">
-        ${a.image ? `<img src="${a.image}" class="card-img-top">` : ""}
-        <div class="card-body">
-          <h5 class="card-title">${a.title}</h5>
-          <p class="card-text">${a.summary}</p>
-          <a href="article.html?slug=${a.slug}" class="btn btn-danger btn-sm">
-            Read More
-          </a>
-        </div>
+    <div class="carousel-item active">
+      <img src="${a.image}" class="d-block w-100" alt="Featured News">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>${a.title}</h5>
+        <p>${a.summary}</p>
       </div>
     </div>
   `;

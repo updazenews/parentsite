@@ -1,3 +1,31 @@
+    :root {
+  --primary-blue: #4FA3E3;     /* Light blue blocks */
+  --primary-dark: #1E1E1E;     /* Logo text / dark UI */
+  --accent-orange: #FF8A2B;    /* Orange blocks */
+  --accent-green: #6BCF63;     /* Green blocks */
+  --accent-purple: #9B59B6;    /* Purple blocks */
+
+  --black: #000000;
+  --dark-gray: #2B2B2B;
+  --gray: #6F6F6F;
+  --light-gray: #E5E5E5;
+  --off-white: #F9F9F9;
+}
+
+
+
+.trending{
+  background-image: url("../assets/news/Gray\ White\ and\ Red\ Bold\ Cinematic\ Street\ YouTube\ Thumbnail.png"); /* adjust path */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% auto;
+  background-color: #000; /* fallback */
+}
+body {
+  background-color: var(--off-white);
+  color: var(--primary-dark);
+}
+
     .post-card {
       position: relative;
       overflow: hidden;
