@@ -9,6 +9,7 @@ import {
 document.addEventListener("DOMContentLoaded", async () => {
   // your code here
   const container = document.getElementById("innerCarousal");
+  const indicators = document.getElementById("indicators");
 
 const q = query(
   collection(db, "articles"),
@@ -29,9 +30,12 @@ snapshot.forEach(doc => {
       </div>
     </div>
   `;
+  indicators.innerHTML += `
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="${indicators.children.length}" class="active" aria-current="true" aria-label="Slide ${indicators.children.length + 1}"></button>
+  `;
 });
 
-document.getElementById("title").innerText = a.title;
+//document.getElementById("title").innerText = a.title;
 
 // Load image from GitHub
 if (a.image) {
