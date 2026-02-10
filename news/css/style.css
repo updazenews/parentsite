@@ -21,6 +21,12 @@
   background-size: 100% auto;
   background-color: #000; /* fallback */
 }
+
+h2 {
+  color: var(--accent-orange);
+  margin-bottom: 20px;
+}
+
 body {
   background-color: var(--off-white);
   color: var(--primary-dark);
