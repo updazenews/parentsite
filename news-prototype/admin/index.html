@@ -1,0 +1,18 @@
+<h2>Admin Login</h2>
+<input type="email" id="email">
+<input type="password" id="password">
+<button onclick="login()">Login</button>
+
+<script type="module">
+import { auth } from "../assets/js/firebase-config.js";
+import { signInWithEmailAndPassword } 
+from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+window.login = async function() {
+  const email = email.value;
+  const pass = password.value;
+
+  await signInWithEmailAndPassword(auth, email, pass);
+  window.location.href = "/admin/dashboard.html";
+}
+</script>
