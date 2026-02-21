@@ -24,33 +24,3 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 revealItems.forEach((item) => revealObserver.observe(item));
 
-const slides = Array.from(document.querySelectorAll('.testimonial'));
-const dotsContainer = document.getElementById('dots');
-let currentSlide = 0;
-
-function showSlide(index) {
-  slides.forEach((slide, i) => {
-    slide.classList.toggle('active', i === index);
-    if (dotsContainer?.children[i]) {
-      dotsContainer.children[i].classList.toggle('active', i === index);
-    }
-  });
-}
-
-if (slides.length && dotsContainer) {
-  slides.forEach((_, index) => {
-    const dot = document.createElement('button');
-    dot.className = `dot${index === 0 ? ' active' : ''}`;
-    dot.setAttribute('aria-label', `Show testimonial ${index + 1}`);
-    dot.addEventListener('click', () => {
-      currentSlide = index;
-      showSlide(currentSlide);
-    });
-    dotsContainer.appendChild(dot);
-  });
-
-  setInterval(() => {
-    currentSlide = (currentSlide + 1) % slides.length;
-    showSlide(currentSlide);
-  }, 4500);
-}
