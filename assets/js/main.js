@@ -24,3 +24,26 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 revealItems.forEach((item) => revealObserver.observe(item));
 
+
+const cookieConsent = document.getElementById('cookieConsent');
+const cookieAccept = document.getElementById('cookieAccept');
+const cookieDecline = document.getElementById('cookieDecline');
+const cookieStorageKey = 'updaze_cookie_consent';
+
+if (cookieConsent) {
+  const savedChoice = localStorage.getItem(cookieStorageKey);
+
+  if (savedChoice === 'accepted' || savedChoice === 'declined') {
+    cookieConsent.classList.add('hidden');
+  }
+
+  cookieAccept?.addEventListener('click', () => {
+    localStorage.setItem(cookieStorageKey, 'accepted');
+    cookieConsent.classList.add('hidden');
+  });
+
+  cookieDecline?.addEventListener('click', () => {
+    localStorage.setItem(cookieStorageKey, 'declined');
+    cookieConsent.classList.add('hidden');
+  });
+}
