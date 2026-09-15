@@ -24,6 +24,37 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 revealItems.forEach((item) => revealObserver.observe(item));
 
+const contactForm = document.getElementById('contactForm');
+const formStatus = document.getElementById('formStatus');
+
+if (contactForm && formStatus) {
+  contactForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    if (!contactForm.checkValidity()) {
+      formStatus.textContent = 'Please complete all required fields before sending your enquiry.';
+      formStatus.classList.add('error');
+      contactForm.reportValidity();
+      return;
+    }
+
+    const formData = new FormData(contactForm);
+    const enquiry = [
+      `Name: ${formData.get('name')}`,
+      `Email: ${formData.get('email')}`,
+      `Company / Organisation: ${formData.get('company') || 'Not provided'}`,
+      `Service Required: ${formData.get('service')}`,
+      '',
+      'Message:',
+      formData.get('message'),
+    ].join('\n');
+
+    formStatus.textContent = 'Opening your email application with your enquiry.';
+    formStatus.classList.remove('error');
+    window.location.href = `mailto:info@updaze.co.za?subject=${encodeURIComponent('Website enquiry')}&body=${encodeURIComponent(enquiry)}`;
+  });
+}
+
 
 const cookieConsent = document.getElementById('cookieConsent');
 const cookieAccept = document.getElementById('cookieAccept');
